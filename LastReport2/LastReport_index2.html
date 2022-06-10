@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <title>Last Report</title>
+    <style>
+     body {
+         font-family: system-ui;
+     }
+     .container {
+         display: flex;
+     }
+     .bar.active {
+         stroke: #000;
+     }
+     #tooltip {
+         position: absolute;
+         opacity: 0;
+         background: #fff;
+         border: 1px solid #ddd;
+         font-size: 12px;
+         font-weight: 600;
+         padding: 2px 8px;
+     }
+     .tooltip-label {
+         font-weight: 500;
+         font-size: 11px;
+         color: #888;
+     }
+    </style>
+    </head>
+    <body>
+    <h2>LastReport(224x011x):ロシアが消費した資源の数</h2>
+    
+    <p>
+        消費した資源の種類
+    <select name="BarValue" id="BarValue">
+        <option value= "航空機" selected>棒グラフの値を選択してください</option>
+        <option value= "航空機" >航空機</option>
+        <option value="ヘリコプター">ヘリコプター</option>
+        <option value="戦車">戦車</option>
+        <option value= "装甲兵員輸送車" >装甲兵員輸送車</option>
+        <option value="野砲">野砲</option>
+        <option value="多連装ロケット砲">多連装ロケット砲</option>
+        <option value= "Military Auto" >Military Auto</option>
+        <option value="燃料タンク">燃料タンク</option>
+        <option value="ドローン">ドローン</option>
+        <option value="軍艦">軍艦</option>
+        <option value="対航空兵器">対航空兵器</option>
+        <option value="特殊装備">特殊装備</option>
+        <option value="移動式短距離弾道ミサイル">移動式短距離弾道ミサイル</option>
+        <option value="車両と燃料タンク">車両と燃料タンク</option>
+        <option value="巡航ミサイル">巡航ミサイル</option>
+        <option value="人的資源">人的資源</option>
+    </select>
+    <button type="button" id="Decision1">決定</button>
+    </p>
+    <p>
+    散布図の縦軸の値： <span id="span2"></span>
+    <select name="VerticalValue" id="VerticalValue">
+        <option disabled selected>縦軸の値を選択してください</option>
+        <option value= "航空機" >航空機</option>
+        <option value="ヘリコプター">ヘリコプター</option>
+        <option value="戦車">戦車</option>
+        <option value= "装甲兵員輸送車" >装甲兵員輸送車</option>
+        <option value="野砲">野砲</option>
+        <option value="多連装ロケット砲">多連装ロケット砲</option>
+        <option value= "Military Auto" >Military Auto</option>
+        <option value="燃料タンク">燃料タンク</option>
+        <option value="ドローン">ドローン</option>
+        <option value="軍艦">軍艦</option>
+        <option value="対航空兵器">対航空兵器</option>
+        <option value="特殊装備">特殊装備</option>
+        <option value="移動式短距離弾道ミサイル">移動式短距離弾道ミサイル</option>
+        <option value="車両と燃料タンク">車両と燃料タンク</option>
+        <option value="巡航ミサイル">巡航ミサイル</option>
+        <option value="人的資源">人的資源</option>
+    </select>
+ 
+    <button type="button" id="Decision2">決定</button>
+        
+    <p>
+        日付を選択したときの色
+        <select name="SelectColor" id="SelectColor">
+        <option value= "red"selected>赤</option>
+        <option value="blue">青</option>
+        <option value="green">緑</option>
+    </select>
+    <button type="button" id="Decision3">日付選択：散布図に反映</button>
+    <button type="button" id="Decision4">リセット</button>
+    <label for="radius-slider">Radius: <span id="radius-value">10</span></label>
+    <input type="range" min="1" value="10" max="30" id="radius-slider">
+
+            
+    <div id="tooltip"></div>
+    <div class="container">
+        <div><svg id="drawing_region_barchart" ></svg></div>
+        <div><svg id="drawing_region_scatterplot"></svg></div>
+    </div>
+        データの出典：kaggle 「2022 Ukraine Russia War」: https://www.kaggle.com/datasets/piterfm/2022-ukraine-russian-war/code(一部変更)
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="LastReport_ScatterPlot.js"></script>
+    <script src="LastReport_BarChart.js"></script>
+    <script src="LastReport_main2.js"></script>
+    </body>
+</html>
